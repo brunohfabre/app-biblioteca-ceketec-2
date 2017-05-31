@@ -1,0 +1,107 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h3>Agendamentos</h3>
+        </div>
+    </div>
+    {{scheduling}}
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel">
+                <form>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="inputCreated">Data</label>
+                            <input input-date
+                                type="text"
+                                name="created"
+                                id="inputCreated"
+                                ng-model="scheduling.date"
+                                container=""
+                                format="mm/dd/yyyy"
+                                months-full="{{ month }}"
+                                months-short="{{ monthShort }}"
+                                weekdays-full="{{ weekdaysFull }}"
+                                weekdays-short="{{ weekdaysShort }}"
+                                weekdays-letter="{{ weekdaysLetter }}"
+                                disable="disable"
+                                min="{{ minDate }}"
+                                max="{{ maxDate }}"
+                                today="today"
+                                first-day="1"
+                                clear="clear"
+                                close="close"
+                                select-years="15"
+                                on-start="onStart()"
+                                on-render="onRender()"
+                                on-open="onOpen()"
+                                on-close="onClose()"
+                                on-set="onSet()"
+                                on-stop="onStop()" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="input_starttime">Hora entrada</label>
+                            <input id="input_starttime" input-clock data-twelvehour="false" type="text" ng-model="scheduling.start_time">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="input_starttime">Hora saida</label>
+                            <input id="input_starttime" input-clock data-twelvehour="false" type="text" ng-model="scheduling.end_time">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div input-field class="col s12">
+                            <select ng-model="scheduling._student" material-select watch ng-options="student._id as student._room._unit.name + '/' + student._room.name + '/' + student.name for student in students">
+                                <option value="">Selecione um aluno</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="student_name" type="number" ng-model="scheduling.quantity">
+                            <label for="student_name">Quanidade de alunos</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button class="btn green right" ng-click="addScheduling(scheduling)">adicionar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel">
+                <div class="row">
+                    <div class="col s12">
+                        <table class="striped">
+                            <thead>
+                                <tr>
+                                    <th>date</th>
+                                    <th>start_time</th>
+                                    <th>end_time</th>
+                                    <th>quantidade alunos</th>
+                                    <th>action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="scheduling in schedulings">
+                                    <td>{{scheduling.date}}</td>
+                                    <td>{{scheduling.start_time}}</td>
+                                    <td>{{scheduling.end_time}}</td>
+                                    <td>{{scheduling.quantity}}</td>
+                                    <td><button class="btn red" ng-click="deleteScheduling(scheduling)">delete</button> <a class="btn grey">visualizar</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

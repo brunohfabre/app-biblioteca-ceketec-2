@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h3>Aluno</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel">
+                <div class="row">
+                    <div class="col s12 m12">
+                        <a ui-sref="room({})"></a>
+                    </div>
+                </div>
+                <form>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="student_name" type="text" ng-model="student.name">
+                            <label for="student_name">Nome</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="student_email" type="text" ng-model="student.email">
+                            <label for="student_email">Nome Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="student_ra" type="text" ng-model="student.ra">
+                            <label for="student_ra">RA</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button class="waves-effect waves-light btn green darken-1 right" ng-click="addStudent(student)">adicionar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel">
+                <div class="row">
+                    <div class="col s12">
+                        <table class="striped">
+                            <thead>
+                                <tr>
+                                    <th>name</th>
+                                    <th>email</th>
+                                    <th>ra</th>
+                                    <th>room</th>
+                                    <th>action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="student in students|filter: roomId">
+                                    <td>{{student.name}}</td>
+                                    <td>{{student.email}}</td>
+                                    <td>{{student.ra}}</td>
+                                    <td>{{student._room.name}}</td>
+                                    <td><button class="btn red" ng-click="deleteStudent(student)">delete</button> <a ui-sref="student({roomId: room._id})" class="btn grey">adicionar aluno</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

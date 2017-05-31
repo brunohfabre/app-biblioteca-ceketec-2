@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h3>Salas ({{unitId}})</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel">
+                <div class="row">
+                    <form>
+                        <div class="input-field col s12 m10">
+                            <input id="last_name" type="text" ng-model="room.name">
+                            <label for="last_name">Nome Sala</label>
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <button class="waves-effect waves-light btn green darken-1" ng-click="addRoom(room)">adicionar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card-panel">
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>quantidade alunos</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="room in rooms|orderBy: 'name'">
+                            <td>{{room.name}}</td>
+                            <td>{{(students|filter: room._id).length}}</td>
+                            <td>
+                                <button class="waves-effect waves-light btn red darken-1" ng-click="deleteRoom(room)">remover</button>
+                                <a class="waves-effect waves-light btn grey darken-1" ui-sref="student({unitId: room._unit._id, roomId: room._id})">adicionar alunos</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

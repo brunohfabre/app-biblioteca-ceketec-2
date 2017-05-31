@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h3>Emprestimos</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="pesquisa" type="text" ng-model="criterioBusca">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel">
+                <div class="row">
+                    <div class="col s12">
+                        <table class="striped">
+                            <thead>
+                                <tr>
+                                    <th>student</th>
+                                    <th>book</th>
+                                    <th>start_date</th>
+                                    <th>end_date</th>
+                                    <th>status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="loan in loans|filter: criterioBusca">
+                                    <td>{{loan._student.name}}</td>
+                                    <td>{{loan._book.name}}</td>
+                                    <td>{{loan.start_date|date}}</td>
+                                    <td>{{loan.end_date|date}}</td>
+                                    <td>{{loan.status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
