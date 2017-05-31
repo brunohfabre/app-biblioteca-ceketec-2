@@ -2,7 +2,7 @@ angular.module('app').controller('loanCtrl', function($scope, $http, $stateParam
     $scope.bookId = $stateParams.bookId;
 
     var loadStudent = function() {
-        $http.get('http://localhost:3003/api/students/').then(function (response) {
+        $http.get('http://104.236.90.147:3003/api/students/').then(function (response) {
             $scope.students = response.data
         });
     };
@@ -17,7 +17,7 @@ angular.module('app').controller('loanCtrl', function($scope, $http, $stateParam
             start_date: dataInicio,
             end_date:  $scope.endDate,
         };
-        $http.post('http://localhost:3003/api/loans/', loan).then(function (response) {
+        $http.post('http://104.236.90.147:3003/api/loans/', loan).then(function (response) {
             loadStudent();
         });
     };

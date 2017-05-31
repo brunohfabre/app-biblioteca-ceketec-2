@@ -2,7 +2,7 @@ angular.module('app').controller('loansCtrl', function($scope, $http, $statePara
     $scope.bookId = $stateParams.bookId;
 
     var loadLoan = function() {
-        $http.get('http://localhost:3003/api/loans/').then(function (response) {
+        $http.get('http://104.236.90.147:3003/api/loans/').then(function (response) {
             $scope.loans = response.data
         });
     };
