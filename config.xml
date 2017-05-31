@@ -7,7 +7,6 @@
     <author email="support@phonegap.com" href="http://phonegap.com">
         PhoneGap Team
     </author>
-    <icon src="logo.png" width="256" height="256" />
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
@@ -32,6 +31,7 @@
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <platform name="android">
+        <icon src="www/res/icon/android/icon.png" />
         <splash density="land-ldpi" src="www/res/screen/android/drawable-land-ldpi-screen.png" />
         <splash density="land-mdpi" src="www/res/screen/android/drawable-land-mdpi-screen.png" />
         <splash density="land-hdpi" src="www/res/screen/android/drawable-land-hdpi-screen.png" />
