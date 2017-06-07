@@ -31,14 +31,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="loan in loans|filter: criterioBusca|orderBy: '-createdAt'">
+                                <tr ng-repeat="loan in loans|orderBy: 'createdAt'|filter: criterioBusca">
                                     <td>{{loan._student.name}}</td>
                                     <td>{{loan._book.name}}</td>
                                     <td>{{loan.start_date|date:'dd/MM/yyyy'}}</td>
                                     <td>{{loan.end_date|date:'dd/MM/yyyy'}}</td>
                                     <td>
                                         <button class="waves-effect waves-light btn red darken-1" ng-click="deleteLoan(loan)">
-                                            remover
+                                            devolver
                                         </button>
                                     </td>
                                 </tr>

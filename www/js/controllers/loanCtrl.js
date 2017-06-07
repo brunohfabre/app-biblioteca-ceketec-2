@@ -1,4 +1,4 @@
-angular.module('app').controller('loanCtrl', function($scope, $http, $stateParams) {
+angular.module('app').controller('loanCtrl', function($scope, $http, $stateParams, $state) {
     $scope.bookId = $stateParams.bookId;
 
     var loadStudent = function() {
@@ -18,7 +18,7 @@ angular.module('app').controller('loanCtrl', function($scope, $http, $stateParam
             end_date:  $scope.endDate,
         };
         $http.post('http://104.236.90.147:3003/api/loans/', loan).then(function (response) {
-            loadStudent();
+            $state.go('books');
         });
     };
 
