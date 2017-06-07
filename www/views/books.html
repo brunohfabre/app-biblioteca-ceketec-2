@@ -10,23 +10,23 @@
                 <form>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input placeholder="name" id="first_name" type="text" class="validate" ng-model="book.name">
+                            <input placeholder="Nome" id="first_name" type="text" ng-model="book.name">
                         </div>
                         <div class="input-field col s12 m6">
-                            <input placeholder="edition" id="first_name" type="text" class="validate" ng-model="book.edition">
+                            <input placeholder="Edição" id="first_name" type="text" ng-model="book.edition">
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input placeholder="author" id="first_name" type="text" class="validate" ng-model="book.author">
+                            <input placeholder="Autor" id="first_name" type="text" ng-model="book.author">
                         </div>
                         <div class="input-field col s12 m6">
-                            <input placeholder="status" id="first_name" type="text" class="validate" ng-model="book.status">
+                            <input placeholder="Estado do livro" id="first_name" type="text" ng-model="book.status">
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m12">
-                            <input placeholder="link cover" id="first_name" type="text" class="validate" ng-model="book.cover">
+                            <input placeholder="Link da capa" id="first_name" type="text" ng-model="book.cover">
                         </div>
                     </div>
                     <div class="row">
@@ -68,9 +68,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-action <center></center>">
-                    <button ng-click="deleteBook(book)" class="btn red">remover</button>
-                    <a ui-sref="loan({bookId: book._id})" class="btn grey">emprestar</a>
+                <div class="card-action center">
+                    <div ng-show="book.loan_status == '0'">
+                        <button ng-click="deleteBook(book)" class="btn red">remover</button>
+                        <a ui-sref="loan({bookId: book._id})" class="btn grey">emprestar</a>
+                    </div>
                 </div>
             </div>
         </div>

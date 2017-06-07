@@ -23,20 +23,24 @@
                         <table class="striped">
                             <thead>
                                 <tr>
-                                    <th>student</th>
-                                    <th>book</th>
-                                    <th>start_date</th>
-                                    <th>end_date</th>
-                                    <th>status</th>
+                                    <th>Aluno</th>
+                                    <th>Livro</th>
+                                    <th>Data emprestimo</th>
+                                    <th>Data devolução</th>
+                                    <th>Ação</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="loan in loans|filter: criterioBusca">
+                                <tr ng-repeat="loan in loans|filter: criterioBusca|orderBy: '-createdAt'">
                                     <td>{{loan._student.name}}</td>
                                     <td>{{loan._book.name}}</td>
-                                    <td>{{loan.start_date|date}}</td>
-                                    <td>{{loan.end_date|date}}</td>
-                                    <td>{{loan.status}}</td>
+                                    <td>{{loan.start_date|date:'dd/MM/yyyy'}}</td>
+                                    <td>{{loan.end_date|date:'dd/MM/yyyy'}}</td>
+                                    <td>
+                                        <button class="waves-effect waves-light btn red darken-1" ng-click="deleteLoan(loan)">
+                                            remover
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

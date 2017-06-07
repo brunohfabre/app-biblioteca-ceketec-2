@@ -7,5 +7,11 @@ angular.module('app').controller('loansCtrl', function($scope, $http, $statePara
         });
     };
 
+    $scope.deleteLoan = function(loan) {
+        $http.delete('http://104.236.90.147:3003/api/loans/' + loan._id).then(function (response) {
+            loadLoan();
+        });
+    };
+
     loadLoan();
 });

@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h3>Emprestimo</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="pesquisa" type="text" ng-model="criterioBusca">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel">
+                <div class="row">
+                    <div class="col s12">
+                        <table class="striped">
+                            <thead>
+                                <tr>
+                                    <th>name</th>
+                                    <th>email</th>
+                                    <th>ra</th>
+                                    <th>unit</th>
+                                    <th>room</th>
+                                    <th>action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="student in students|filter: criterioBusca">
+                                    <td>{{student.name}}</td>
+                                    <td>{{student.email}}</td>
+                                    <td>{{student.ra}}</td>
+                                    <td>{{student._room._unit.name}}</td>
+                                    <td>{{student._room.name}}</td>
+                                    <td><button class="btn grey" ng-click="addLoan(student._id)">emprestar</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
